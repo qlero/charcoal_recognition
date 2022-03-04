@@ -7,7 +7,8 @@ link:
 
 # Imports library
 
-import os, sys
+import os, sys 
+# used to declare ../charcoal as a folder that can be imported
 currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
@@ -43,10 +44,10 @@ if __name__ == "__main__":
     check_create_folder(ufpr_cleaned_dataset_path)
     # Retrieves the raw data as a .zip file
     print("Downloading the Charcoal dataset")
-    #charcoal_file = requests.get(ufpr_dataset_url)
-    #with open(ufpr_dataset_zip_path, "wb") as f:
-    #    f.write(charcoal_file.content)
-    #print("Done")
+    charcoal_file = requests.get(ufpr_dataset_url)
+    with open(ufpr_dataset_zip_path, "wb") as f:
+        f.write(charcoal_file.content)
+    print("Done")
     # Extract the content of the zip
     with ZipFile(ufpr_dataset_zip_path) as z:
         print(f"Extracting all files")
