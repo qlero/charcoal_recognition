@@ -52,12 +52,12 @@ def generate_dataloaders(
     """
     # Instantiates the image data into a PyTorch
     # ImageFolder object
-    dataset = ImageFolder(dataset_folder, transform = TRANSFORM)
+    dataset = ImageFolder(path, transform = TRANSFORM)
     classes = dataset.classes
     # Computes the number of images to allocate to
     # each subset: training, validation, test
     nb_images = sum([len(folder[2]) 
-                     for folder in list(os.walk(dataset_folder))])
+                     for folder in list(os.walk(path))])
     train_count = int(nb_images*train_size)
     valid_count = int(nb_images*(1-train_size)/2)
     test_count = nb_images - train_count - valid_count

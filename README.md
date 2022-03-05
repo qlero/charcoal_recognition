@@ -12,6 +12,10 @@ This repository covers the exploration of various supervised recognition techniq
 
 ### Working scripts
 
-#### `dataset.py`
+#### `download_clean_dataset.py`
 
 This scripts downloads the raw dataset from its internet archive (.zip file), extracts the content, incl. the .tif images, and performs a cleanup step that removes the metadata banner from each images. The cleaned images are stored as .tiff files in the subfolder `dataset_ufpr/cleaned`. Raw dataset remains available in the subfolder `dataset_ufpr/charcoal`.
+
+#### `test_create_dataloaders.py`
+
+This scripts runs the `generate_dataloaders` function located in the `dataloader.py` file in `charcoal`. The goal is to test the creation of PyTorch datasets and dataloaders from the subfolder `dataset_ufpr/cleaned`.
