@@ -27,7 +27,8 @@ TRANSFORM = tf.Compose([
 def generate_dataloaders(
         path: str, 
         batch_size: int = 128, 
-        train_size: float = 2/3
+        train_size: float = 2/3,
+        transform: tf.transforms = None
     ) -> tuple:
     """
     Given a folder path to the cleaned (i.e. without banner)
@@ -45,14 +46,22 @@ def generate_dataloaders(
         % split of images to allocated to the training
         dataset (validation and test sets are split 50/50
         with the remainder)
+    transform : tf.transforms
+        Torchvision Transform object to apply pre-processing
+        to the datasets
     
     Returns
     -------
-    
+        Tuple of:
+            - list of classes
+            - PyTorch datasets (training, validation,test)
+            - PyTorch dataloaders (training, validation, test)
     """
     # Instantiates the image data into a PyTorch
     # ImageFolder object
-    dataset = ImageFolder(path, transform = TRANSFORM)
+    if transform is None:
+        transform = TRANSFORM
+    dataset = ImageFolder(path, transform = transform)
     classes = dataset.classes
     # Computes the number of images to allocate to
     # each subset: training, validation, test
