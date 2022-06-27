@@ -16,10 +16,11 @@ from torchvision import transforms as tf
 
 TRANSFORM = tf.Compose([
     tf.RandomResizedCrop(64),
-    tf.RandomRotation(180),
+    tf.RandomRotation(90),
+    tf.RandomHorizontalFlip(),
     tf.PILToTensor(),
     tf.ConvertImageDtype(torch.float64),
-    tf.Normalize(mean=[0.5],std=[0.5]),
+    #tf.Normalize(mean=[0.5],std=[0.5]),
 ])
 
 # Function declarations

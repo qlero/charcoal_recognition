@@ -98,6 +98,9 @@ def generate_model(
     elif model == "resnet50":
         model = models.resnet50(pretrained=pretrained)
         print("ResNet50 model loaded")
+    elif model == "convnext_tiny":
+        model = models.resnet50(pretrained=pretrained)
+        print("ResNet50 model loaded")
     else:
         model = models.AlexNet()
         print("AlexNet model loaded")

@@ -6,6 +6,7 @@ charcoal dataset
 
 # Imports library
 
+import torch
 import os, sys 
 # used to declare ../charcoal as a folder that can be imported
 currentdir = os.path.dirname(os.path.realpath(__file__))
@@ -27,8 +28,11 @@ if __name__ == "__main__":
     model, optimizer, criterion = generate_model(model="vgg")
     print("DONE")
     print("Test declaration ResNet18")
-    model, optimizer, criterion = generate_model(model="resnet")
+    model, optimizer, criterion = generate_model(model="resnet18")
     print("DONE")
     print("Test declaration ResNet50")
     model, optimizer, criterion = generate_model(model="restnet50")
+    print("DONE")
+    print("Test declaration convnext_tiny")
+    model, optimizer, criterion = generate_model(model="convnext_tiny")
     print("DONE")
